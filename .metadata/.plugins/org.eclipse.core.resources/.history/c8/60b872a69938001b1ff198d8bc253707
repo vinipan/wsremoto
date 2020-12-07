@@ -1,0 +1,36 @@
+package br.com.excecoes.implementacao;
+
+import tratarexcecao.MinhaExcecao;
+
+public class TesteExcecao {
+
+	public static void main(String[] args) {
+		try {
+			int numero = Integer.parseInt("7");
+			System.out.println("numero: " + numero);
+			
+			String palavra = "";
+			System.out.println("qtde chars: " + palavra.length());
+		}
+		
+		catch (Exception erro ) {
+			System.out.println(MinhaExcecao.tratar(erro));;
+
+		}
+		
+		
+		finally {
+			System.out.println("se fode ai");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+
+	}
+
+}

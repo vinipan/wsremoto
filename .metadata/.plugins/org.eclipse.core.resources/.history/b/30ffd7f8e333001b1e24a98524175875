@@ -1,0 +1,27 @@
+package exercicios;
+
+import javax.swing.JOptionPane;
+
+public class Lista2Exec1 {
+
+	public static void main(String[] args) {
+		String cliente = JOptionPane.showInputDialog("Nome do Cliente:").toUpperCase();
+		short nDiarias = Short.parseShort(JOptionPane.showInputDialog("Numero de diárias:"));
+		float total = 0;
+		
+		if (nDiarias < 15)
+		{
+			total = nDiarias * 8;
+		} else if (nDiarias > 15)
+		{
+			total = nDiarias * (float) 5.5;
+		} else
+		{
+			total = nDiarias * 6;
+		}
+		
+		System.out.println("O TOTAL DA CONTA de" + cliente +"  É: R$" + total);
+				
+	}
+
+}

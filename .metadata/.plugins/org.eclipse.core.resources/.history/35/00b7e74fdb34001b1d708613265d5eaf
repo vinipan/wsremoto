@@ -1,0 +1,21 @@
+package br.com.elevadorjava.test;
+
+import br.com.elevadorjava.modelo.Elevador;
+
+public class TesteElevador {
+
+	public static void main(String[] args) {
+		
+		Elevador objElevador = new Elevador();
+		
+		objElevador.definirValores("Lacerda", (short) 50, (short) -50, (byte) 20);
+		System.out.println(objElevador.exibirDados());
+		
+		
+		
+		
+		
+
+	}
+
+}

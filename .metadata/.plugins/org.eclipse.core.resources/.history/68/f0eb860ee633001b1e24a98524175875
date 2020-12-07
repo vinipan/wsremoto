@@ -1,0 +1,34 @@
+package exercicios;
+
+import javax.swing.JOptionPane;
+
+public class Lista2Exec3 {
+
+	public static void main(String[] args) {
+		int num1 = Integer.parseInt(JOptionPane.showInputDialog("1º numero INTEIRO"));
+		int num2 = Integer.parseInt(JOptionPane.showInputDialog("2º numero INTEIRO"));
+		String operacao = JOptionPane.showInputDialog("Qual Operador?");
+		float total = 0;
+		
+		if (operacao.equals("+"))
+		{
+			total = num1 + num2;
+		} 
+		else if (operacao.equals("-"))
+		{
+			total = num1 - num2;
+		} 
+		else if (operacao.equals("*"))
+		{
+			total = num1 * num2;
+		}
+		else
+		{
+			total = num1 / num2;
+		}
+		
+		System.out.println(num1 + operacao + "=" + total);
+				
+	}
+
+}

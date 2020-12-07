@@ -1,0 +1,77 @@
+package br.com.bankofoz.deploy;
+
+import br.com.bankofoz.model.Cliente;
+import br.com.bankofoz.model.Conta;
+import br.com.bankofoz.model.Corrente;
+import br.com.bankofoz.model.Endereco;
+import br.com.bankofoz.model.Poupanca;
+import br.com.bankofoz.util.JanelaIn;
+
+public class DeployConta {
+
+	public static void main(String[] args) {
+		
+		Conta objConta  = null;
+		char opt = JanelaIn.s("DIGITE C PARA CONTA CORRENTE \nDIGITE P PARA POUPANÇA").toLowerCase().charAt(0);
+		
+		if (opt == 'c') {
+			objConta = new Corrente(
+					JanelaIn.sh("NUMERO_CONTA"), 
+					JanelaIn.b("DIGITO_CONTA"), 
+					JanelaIn.sh("AGENCIA"), 
+					JanelaIn.f("SALDO"), 
+					new Cliente(
+							123, 
+							"ZEZINHO", 
+							"zezinho@oz.com", 
+							JanelaIn.bo("Zezinho é especial?"), 
+							"123456789-09", 
+							new Endereco(
+									"Rua zezé",
+									"335",
+									"n tem",
+									"JucaBairro",
+									"NABÓPOLIS",
+									"SP",
+									"06969-069"					
+									)
+							), 
+					(float)1500.50, 
+					(float)20.5
+					);
+		}
+		
+		if (opt == 'p') {
+			objConta = new Poupanca(
+					JanelaIn.sh("NUMERO_CONTA"), 
+					JanelaIn.b("DIGITO_CONTA"), 
+					JanelaIn.sh("AGENCIA"), 
+					JanelaIn.f("SALDO"), 
+					new Cliente(
+							123, 
+							"ZEZINHO", 
+							"zezinho@oz.com", 
+							JanelaIn.bo("Zezinho é especial?"), 
+							"123456789-09", 
+							new Endereco(
+									"Rua zezé",
+									"335",
+									"n tem",
+									"JucaBairro",
+									"NABÓPOLIS",
+									"SP",
+									"06969-069"					
+									)
+							), 
+					(float)120.37
+					);
+		}
+		
+		
+		System.out.println(objConta);
+		
+		
+
+	}
+
+}

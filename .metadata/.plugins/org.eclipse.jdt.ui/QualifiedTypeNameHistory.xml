@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="br.com.concessionariarubinho.modelo.CarroFormula1"/>
+<fullyQualifiedTypeName name="br.com.elevadorjava.modelo.Elevador"/>
+<fullyQualifiedTypeName name="br.com.elevadorjava.test.TesteElevador"/>
+<fullyQualifiedTypeName name="br.com.universidadexyz.beans.Turma"/>
+<fullyQualifiedTypeName name="br.com.universidadexyz.beans.Aluno"/>
+<fullyQualifiedTypeName name="br.com.universidadexyz.beans.Professor"/>
+<fullyQualifiedTypeName name="br.com.universidadexyz.beans.Endereco"/>
+<fullyQualifiedTypeName name="br.com.universidadexyz.beans.Curso"/>
+<fullyQualifiedTypeName name="javax.swing.JPopupMenu"/>
+<fullyQualifiedTypeName name="br.com.universidadexyz.util.Magic"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.beans.Venda"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.beans.Produto"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.beans.Fabricante"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.beans.Cliente"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.beans.PessoaFisica"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.util.JanelaIn"/>
+<fullyQualifiedTypeName name="br.com.lojaabc.beans.PessoaJuridica"/>
+<fullyQualifiedTypeName name="br.com.bankofoz.model.Conta"/>
+<fullyQualifiedTypeName name="br.com.bankofoz.model.Corrente"/>
+<fullyQualifiedTypeName name="br.com.bankofoz.model.Cliente"/>
+<fullyQualifiedTypeName name="br.com.bankofoz.util.JanelaIn"/>
+<fullyQualifiedTypeName name="br.com.bankofoz.model.Endereco"/>
+<fullyQualifiedTypeName name="br.com.bankofoz.model.Poupanca"/>
+<fullyQualifiedTypeName name="java.lang.NullPointerException"/>
+<fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
+<fullyQualifiedTypeName name="tratarexcecao.MinhaExcecao"/>
+<fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+</qualifiedTypeNameHistroy>

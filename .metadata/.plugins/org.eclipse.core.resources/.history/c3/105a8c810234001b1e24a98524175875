@@ -1,0 +1,55 @@
+package repeticao;
+
+import javax.swing.JOptionPane;
+
+public class DesafioWhile {
+
+	public static void main(String[] args) {
+		
+		int ano = Integer.parseInt(JOptionPane.showInputDialog("Ano"));		
+		while (ano < 1900) {
+			ano = Integer.parseInt(JOptionPane.showInputDialog("Ano deve ser maior que 1900"));
+		}
+					
+		short mes = Short.parseShort(JOptionPane.showInputDialog("MÊS:"));
+		while (mes < 1 || mes > 12)
+		{
+			mes = Short.parseShort(JOptionPane.showInputDialog("O MÊS DEVE ESTAR ENTRE 1 E 12!!!"));
+		}
+		
+		short dia = Short.parseShort(JOptionPane.showInputDialog("Dia"));
+		
+		while((mes == 2 || mes == 4 || mes == 6 || mes = 9 || mes = 11) && dias > 30) {
+			dia = Short.parseShort(JOptionPane.showInputDialog("DIA/MES INVÁLIDO"));
+		}
+			
+		
+		while (mes == 2 && (dia > 29 || dia < 1))
+		{
+			dia = Short.parseShort(JOptionPane.showInputDialog("OS DIAS DE FEVEIRO"));
+		}
+		
+		while (dia > 31 || dia < 1)
+		{
+			dia = Short.parseShort(JOptionPane.showInputDialog("OS DIAS DEVEM ESTAR ENTRE 1 E 31"));
+		}
+		
+		System.out.println(ano+"."+mes+"."+dia);
+			
+
+
+			
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+}

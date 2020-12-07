@@ -1,0 +1,43 @@
+package br.com.concessionariarubinho.modelo;
+
+public class CarroFormula1 {
+	
+	private String cor;
+	private float valor;
+	private String escuderia;
+	private float velocidade;
+	private boolean status;
+	
+	//Sintaxe método
+	// <modificador> <tipoo do retorno> <nomeDoMetodo> (<tipoParam> <nomeDoParametro>)
+	
+	public String retornarEscuderia() {
+		return escuderia;
+	}
+	
+	public String retornarCor() {
+		return cor;
+	}
+	
+	public float retornarValor() {
+		return valor;
+	}
+	
+	public void preencherEscuderia (String param0) {
+		escuderia = param0.toUpperCase();		
+	}
+	
+	
+	public void preencherCor (String param0) {
+		cor = param0.toUpperCase();		
+	}
+	
+	public void preencherValor (float param0) {
+		if (param0>0) {
+			valor = param0;
+		}
+		
+	}
+	 
+
+}

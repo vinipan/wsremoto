@@ -1,0 +1,17 @@
+package br.com.concessionariarubinho.test;
+
+import br.com.concessionariarubinho.modelo.CarroFormula1;
+
+public class TesteCarro {
+
+	public static void main(String[] args) {
+		
+		CarroFormula1 objeto = new CarroFormula1();
+		
+		
+		
+		
+
+	}
+
+}

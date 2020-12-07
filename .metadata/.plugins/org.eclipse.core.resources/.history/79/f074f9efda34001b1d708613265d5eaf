@@ -1,0 +1,63 @@
+package br.com.elevadorjava.modelo;
+
+public class Elevador {
+	
+	//PROPRIEDADES
+	
+	private String nome;
+	private short andarMaximo;
+	private short andarMinimo;
+	private byte capacidadePessoas;
+	private byte qtdeAtual;
+	private short andarAtual;
+	
+	
+	public void definirValores (String pNome, short pAndarMax, short pAndarMin, byte pCapacidade ) {
+		nome = pNome;
+		andarMaximo = pAndarMax;
+		andarMinimo = pAndarMin;
+		capacidadePessoas = pCapacidade;
+		
+	}
+	
+	public void subir () {
+		if (andarAtual < andarMaximo) {
+			andarAtual++;	
+		}		
+	}
+	
+	public void descer () {
+		if (andarAtual > andarMinimo) {
+			andarAtual--;	
+		}		
+	}
+	
+	public String exibirDados () {
+		return "Nome: " + nome + "Andar atual: " + andarAtual + "Quantidade de pessoas: " + qtdeAtual;
+	}
+	
+	public void entrar(byte pQtde) {
+		if (qtdeAtual+pQtde <= capacidadePessoas) {
+			qtdeAtual+=pQtde;
+		}
+	}
+	
+	public void sair (byte pQtde) {
+		if (qtdeAtual > 0) {
+			qtdeAtual--;
+		}
+	}
+	
+	public void subir (short andar) {
+		if (andar > andarAtual) {
+			andarAtual = andar;
+		}		
+	}
+	
+	public void descer (short andar) {
+		if (andar < andarAtual) {
+			andarAtual = andar;
+		}
+	}
+
+}

@@ -1,0 +1,15 @@
+package br.com.lojaabc.implementacao;
+
+import br.com.lojaabc.beans.PessoaFisica;
+
+public class ImplementarClient {
+
+	public static void main(String[] args) {
+
+
+		PessoaFisica objPessoa = new PessoaFisica();
+		
+
+	}
+
+}

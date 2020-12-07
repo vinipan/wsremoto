@@ -1,0 +1,15 @@
+package decisao;
+
+import javax.swing.JOptionPane;
+
+public class DesafioDecisaoSimples {
+
+	public static void main(String[] args) {
+		String nome = JOptionPane.showInputDialog("NOME?").toUpperCase();
+		int idade = Integer.parseInt(JOptionPane("IDADE?"));
+		
+		
+
+	}
+
+}
