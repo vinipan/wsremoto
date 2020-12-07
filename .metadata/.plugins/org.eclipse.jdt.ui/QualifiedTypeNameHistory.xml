@@ -13,7 +13,6 @@
 <fullyQualifiedTypeName name="br.com.lojaabc.beans.Venda"/>
 <fullyQualifiedTypeName name="br.com.lojaabc.beans.Produto"/>
 <fullyQualifiedTypeName name="br.com.lojaabc.beans.Fabricante"/>
-<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="br.com.lojaabc.beans.Cliente"/>
 <fullyQualifiedTypeName name="br.com.lojaabc.beans.PessoaFisica"/>
 <fullyQualifiedTypeName name="br.com.lojaabc.util.JanelaIn"/>
@@ -28,4 +27,12 @@
 <fullyQualifiedTypeName name="java.lang.NumberFormatException"/>
 <fullyQualifiedTypeName name="tratarexcecao.MinhaExcecao"/>
 <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="br.com.colecoes.beans.Cargo"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.lang.Comparable"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
 </qualifiedTypeNameHistroy>
