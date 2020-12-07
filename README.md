@@ -1,0 +1,2 @@
+# wsremoto
+java projects workspace
