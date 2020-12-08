@@ -1,0 +1,907 @@
+https://wordpad.cc/turma12c
+
+
+========================================
+TesteExcecao
+=========================================
+package br.com.excecoes.implementacao;
+
+import tratarexcecao.MinhaExcecao;
+
+public class TesteExcecao {
+	public static void main(String[] args) {
+		/*
+		 * Excecoes 
+		 * Unchecked´s => DC (Depois da Compilação)
+		 * Checked´s => AC (Antes da Compilação)
+		 */
+		try {
+			//abrir a conexao com o banco de dados
+			int numero = Integer.parseInt("7");
+			if (numero<0) {
+				throw new RuntimeException("Ligue para o 9999");
+			}
+			
+			System.out.println("Número:" + numero);
+			
+			String palavra = "";
+			System.out.println("Qtde Caracteres: " + palavra.length());
+			
+			int[] valores = new int[2];
+			valores[0] = 541;
+			valores[1] = 82;
+			valores[2] = 10;
+			
+
+		}catch(Exception e) {
+			System.out.println(MinhaExcecao.tratar(e));
+		}finally {
+			System.out.println("Tenha um bom dia de trabalho");
+			try {
+				// encerrar a conexão com o banco de dados
+			}catch(Exception e) {
+				System.out.println(MinhaExcecao.tratar(e));
+			}
+		}
+	}
+}
+
+
+
+========================================
+MinhaExcecao
+=======================================
+package tratarexcecao;
+
+public class MinhaExcecao {
+
+	public static String tratar(Exception e) {
+		if (e instanceof NullPointerException) {
+			return "Objeto nulo";
+		} else if (e instanceof NumberFormatException) {
+			return "Número inválido";
+		}else if (e instanceof ArrayIndexOutOfBoundsException) {
+			return "Vetor estourou";
+		}else {
+			e.printStackTrace();
+			return "Excecao desconhecida";
+		}
+	
+	}//fecha o método
+	
+}// fecha a classe
+
+
+
+=======================================
+ImplementarConta
+======================================
+		int opcao = Magic.i("Digite <1> para Corrente ou qualquer outro valor para Poupança");
+		Conta conta = null;
+		if (opcao==1) {
+			conta = new Corrente(
+					(short) 154,
+					(byte) 5,
+					(short) 1451,
+					0,
+					new Cliente(
+							1,
+							"XPTO",
+							"xpto@xpto.com.br",
+							true
+							),
+					100,
+					50
+					);
+		}else {
+			conta = new Poupanca();
+			conta.setAgencia(Short.parseShort(Magic.s("Agencia")));
+			
+		}
+		
+		System.out.println(conta.verificarSaldo());
+
+=========================================
+Conta
+===========================================
+package br.com.bankofoz.beans;
+
+/*
+ * Polimorfismo: é o quarto pilar da OO. Que permite deixarmos métodos com o mesmo nome, realizando
+ * operações distintas.
+ * Dois tipos:
+ * - Overload (sobrecarga) => os métodos estão na mesma classe
+ * - Override (sobrescrita) => os métodos se encontram em classes diferentes
+ */
+
+
+public abstract class Conta {
+
+	private short numero;
+	private byte digito;
+	private short agencia;
+	private float saldo;
+	private Cliente cliente;
+	
+	public float verificarSaldo() {
+		return 0;
+	}
+	
+	public boolean sacar(float valor) {
+		if (valor>0 && valor<=saldo) {
+			saldo-=valor;
+			return true;
+		}
+		return false;
+	}
+	
+	public boolean depositar(float valor) {
+		if (valor>0) {
+			saldo+=valor;
+			return true;
+		}
+		return false;	
+	}
+	
+	
+	public short getNumero() {
+		return numero;
+	}
+	public void setNumero(short numero) {
+		this.numero = numero;
+	}
+	public byte getDigito() {
+		return digito;
+	}
+	public void setDigito(byte digito) {
+		this.digito = digito;
+	}
+	public short getAgencia() {
+		return agencia;
+	}
+	public void setAgencia(short agencia) {
+		this.agencia = agencia;
+	}
+	public float getSaldo() {
+		return saldo;
+	}
+	public void setSaldo(float saldo) {
+		this.saldo = saldo;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Conta(short numero, byte digito, short agencia, float saldo, Cliente cliente) {
+		super();
+		this.numero = numero;
+		this.digito = digito;
+		this.agencia = agencia;
+		this.saldo = saldo;
+		this.cliente = cliente;
+	}
+	public Conta() {
+		super();
+	}
+	@Override
+	public String toString() {
+		return "Conta [numero=" + numero + ", digito=" + digito + ", agencia=" + agencia + ", saldo=" + saldo
+				+ ", cliente=" + cliente + "]";
+	}
+	public void setAll(short numero, byte digito, short agencia, float saldo, Cliente cliente) {
+		this.numero = numero;
+		this.digito = digito;
+		this.agencia = agencia;
+		this.saldo = saldo;
+		this.cliente = cliente;
+	}
+
+
+}
+
+
+
+
+============================================
+PessoaFisica
+============================================
+
+public class PessoaFisica extends Cliente{
+
+	private String cpf;
+	private String rg;
+	private String nascimento;
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	public String getRg() {
+		return rg;
+	}
+	public void setRg(String rg) {
+		this.rg = rg;
+	}
+	public String getNascimento() {
+		return nascimento;
+	}
+	public void setNascimento(String nascimento) {
+		this.nascimento = nascimento;
+	}
+	public PessoaFisica(int id, String nome, String email, boolean especial, String cpf, String rg, String nascimento) {
+		super(id, nome, email, especial);
+		this.cpf = cpf;
+		this.rg = rg;
+		this.nascimento = nascimento;
+	}
+	public PessoaFisica() {
+		super();
+	}
+
+	@Override
+	public String toString() {
+		return "PessoaFisica [cpf=" + cpf + ", rg=" + rg + ", nascimento=" + nascimento + super.toString();
+	}
+	public void setAll(int id, String nome, String email, boolean especial, String cpf, String rg, String nascimento) {
+		super.setAll(id, nome, email, especial);
+		this.cpf = cpf;
+		this.rg = rg;
+		this.nascimento = nascimento;
+	}
+	
+	
+	
+	
+}
+
+==============================================
+PessoaJuridica
+=============================================
+public class PessoaJuridica extends Cliente{
+	
+	private String cnpj;
+	private String contato;
+	
+	
+	
+	public void setAll(int id, String nome, String email, boolean especial, String cnpj, String contato) {
+		super.setAll(id, nome, email, especial);
+		this.cnpj = cnpj;
+		this.contato = contato;
+	}
+
+	@Override
+	public String toString() {
+		return "PessoaJuridica [cnpj=" + cnpj + ", contato=" + contato + super.toString();
+	}
+
+	public PessoaJuridica(int id, String nome, String email, boolean especial, String cnpj, String contato) {
+		super(id, nome, email, especial);
+		this.cnpj = cnpj;
+		this.contato = contato;
+	}
+
+	public PessoaJuridica() {
+		super();
+	}
+	
+	
+	
+	public String getCnpj() {
+		return cnpj;
+	}
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
+	}
+	public String getContato() {
+		return contato;
+	}
+	public void setContato(String contato) {
+		this.contato = contato;
+	}
+	
+	
+
+}
+
+=============================================
+ImplementarVenda
+=======================================
+		/*Venda venda = new Venda(
+				Magic.i("Nota Fiscal"),
+				new Produto(
+						Magic.i("Código"),
+						Magic.s("Descricao"),
+						Magic.f("Valor Compra"),
+						Magic.f("Valor Venda"),
+						Magic.i("Qtde"),
+						new Fabricante(
+								Magic.s("CNPJ"),
+								Magic.s("Razao Social"),
+								Magic.s("Fone")
+								)
+						),
+				new Cliente(
+						Magic.i("Código do Cliente"),
+						Magic.s("Nome do Cliente"),
+						Magic.s("Email"),
+						Magic.b("É especial?")
+						),
+				Magic.i("Qtde"),
+				Magic.f("Total")
+				);
+		
+		
+		System.out.println(venda.toString());*/
+		
+		Venda venda = new Venda();
+		
+		venda.setQtde(10);
+		venda.getProduto().setValorVenda(1500);
+		venda.getProduto().getFabricante().setCnpj("123456321");
+		System.out.println(venda.getProduto().getFabricante().getCnpj());
+		
+		Cliente cli = new Cliente();
+		cli.setEmail("cliente@cliente");
+		venda.setCliente(cli);
+
+=======================================
+Venda
+=======================================
+	public void calcularTotal() {
+		if (cliente.isEspecial()==true) {
+			total = produto.getValorVenda() * (float) 0.95 * qtde;
+		}else {
+			total = produto.getValorVenda() * qtde;
+		}
+	}
+
+
+===================================================================
+https://www.amazon.com.br/Ensino-Did%C3%A1tico-Desenvolvimento-Implementa%C3%A7%C3%A3o-Aplica%C3%A7%C3%B5es/dp/8536513047/ref=sr_1_1?adgrpid=78035804821&dchild=1&gclid=Cj0KCQiA2af-BRDzARIsAIVQUOeJYjbV8SGW1AKArlSV8YDb_XorQXR9hSVlKah8Bxj7bn9FmplGRcQaAlAfEALw_wcB&hvadid=426016012001&hvdev=c&hvlocphy=1001736&hvnetw=g&hvqmt=b&hvrand=16328788770481280749&hvtargid=kwd-477830544196&hydadcr=5651_11235181&keywords=java+ensino+didatico&qid=1607083951&sr=8-1&tag=hydrbrgk-20
+
+https://www.caelum.com.br/
+
+https://www.amazon.com.br/Use-cabe%C3%A7a-Java-Bert-Bates/dp/8576081733/ref=asc_df_8576081733/?tag=googleshopp00-20&linkCode=df0&hvadid=379765802390&hvpos=&hvnetw=g&hvrand=18310863753804080961&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=1001736&hvtargid=pla-388681580538&psc=1
+=============================================================
+
+
+
+
+
+===================================
+Aluno
+===================================
+private int rm;
+	private String nome = new String();
+	private String cpf;
+	
+	public Aluno() {
+		//nome = new String();
+		cpf = new String();
+	}
+	
+	public Aluno(int rm, String nome, String cpf) {
+		this.rm=rm;
+		this.nome =nome;
+		this.cpf=cpf;
+	}
+	
+	
+	public String getAll() {
+		return 
+				"RM..: " + rm + "\n" +
+				"Nome: " + nome + "\n" + 
+				"CPF.: " + cpf; 
+	}
+	
+	public void setAll(int rm, String nome, String cpf) {
+		this.rm = rm;
+		this.nome = nome;
+		this.cpf = cpf;
+	}
+	
+	public int getRm() {
+		return rm;
+	}
+	public void setRm(int rm) {
+		this.rm = rm;
+	}
+	public String getNome() {
+		return nome;
+	}
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+	public String getCpf() {
+		return cpf;
+	}
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
+	
+
+
+
+
+==========================================
+ImplementarAluno
+===========================================
+Aluno aluno = new Aluno();
+		System.out.println(aluno.getAll());
+		
+		
+		aluno.setCpf(Magic.s("CPF"));
+		aluno.setNome(Magic.s("Nome"));
+		aluno.setRm(Magic.i("RM"));
+		System.out.println("Nome: " + aluno.getNome());
+		System.out.println("CPF.: " + aluno.getCpf());
+		System.out.println("RM..: " + aluno.getRm());
+
+
+
+https://github.com/humbertosousa/gama_material
+
+===================================
+Magic
+===================================
+	public static String s(String msg) {
+		return JOptionPane.showInputDialog(msg).toLowerCase();
+	}
+	
+	public static int i(String msg) {
+		return Integer.parseInt(s(msg));
+	}
+	
+	public static float f(String msg) {
+		return Float.parseFloat(s(msg));
+	}
+
+
+====================================
+ImplementarTurma
+===================================
+Turma turma = new Turma(
+				Magic.i("Numero"),
+				new Aluno(
+						Magic.i("RM"),
+						Magic.s("Nome"),
+						Magic.s("CPF")
+						),
+				new Professor(
+						
+						),
+				new Curso(
+						
+						),
+				Magic.s("Periodo"),
+				Magic.s("Sala")
+				);
+		
+		
+		System.out.println(turma.toString());
+
+=============================
+ImplementarCurso
+============================
+		Curso curso = new Curso();
+		curso.setAll(
+				JOptionPane.showInputDialog("Descrição"), 
+				Float.parseFloat(JOptionPane.showInputDialog("Valor")), 
+				Short.parseShort(JOptionPane.showInputDialog("Carga Horária")), 
+				JOptionPane.showInputDialog("Descrição"), 
+				Integer.parseInt(JOptionPane.showInputDialog("ID")), 
+				Integer.parseInt(JOptionPane.showInputDialog("Duracao"))
+				);
+
+		System.out.println(curso.getAll());
+
+
+===========================
+Curso
+=========================
+private String descricao;
+	private float valor;
+	private short cargaHoraria;
+	private String sigla;
+	private int id;
+	private int duracao;
+	
+	
+	/*
+	 * - Crie um getPromocao() => vai retornar o valor do curso com 10% de desconto
+	 * - Crie um getPromocao(float porcentagem) => vai retornar o valor do curso
+	 * de acordo com a porcentagem que foi recebida
+	 * - Crie um método ajustarValor(float porcentagem) => vai alterar o valor 
+	 * do curso de acordo com a porcentagem recebida.
+	 * 
+	 */
+	
+	public void setAll(String descricao, float valor, short cargaHoraria, String sigla, int id, int duracao) {
+		this.descricao=descricao;
+		this.valor=valor;
+		this.cargaHoraria= cargaHoraria;
+		this.sigla= sigla;
+		this.id = id;
+		this.duracao=duracao;
+	}
+	
+	public String getAll() {
+		return 
+				"Descrição.....: " + descricao + "\n" +
+				"Valor.........: " + valor + "\n" + 
+				"Carga Horária.: " + cargaHoraria + "\n" + 
+				"Sigla.........: " + sigla + "\n" + 
+				"Código........: " + id + "\n" + 
+				"Duração.......: " + duracao;
+	}
+	
+	public String getDescricao() {
+		return descricao;
+	}
+	
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	
+	public float getValor() {
+		return valor;
+	}
+	public void setValor(float valor) {
+		this.valor = valor;
+	}
+	public short getCargaHoraria() {
+		return cargaHoraria;
+	}
+	public void setCargaHoraria(short cargaHoraria) {
+		this.cargaHoraria = cargaHoraria;
+	}
+	public String getSigla() {
+		return sigla;
+	}
+	public void setSigla(String sigla) {
+		this.sigla = sigla;
+	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public int getDuracao() {
+		return duracao;
+	}
+	public void setDuracao(int duracao) {
+		this.duracao = duracao;
+	}
+	
+	
+=============================
+Elevador
+============================
+private String nome;
+	private short andarMaximo;
+	private short andarMinimo;
+	private byte capacidadePessoas;
+	private byte qtdeAtual;
+	private short andarAtual;
+	
+	public void descer(short andar) {
+		if (andar>=andarMinimo) {
+			andarAtual=andar;
+		}
+	}
+	
+	public void subir(short andar) {
+		if (andar<=andarMaximo) {
+			andarAtual=andar;
+		}
+	}
+	
+	
+	public void sair(byte pQtde) {
+		byte resultado = (byte) (qtdeAtual - pQtde);
+		if (resultado>=0) {
+			qtdeAtual-=pQtde;
+		}
+	}
+	
+	public void entrar(byte pQtde) {
+		byte total = (byte) (qtdeAtual + pQtde);
+		if (total<=capacidadePessoas) {
+			qtdeAtual+=pQtde;
+		}
+		
+		
+	}
+	
+	public String exibirDados() {
+		return 
+				"Elevador........: " + nome + "\n" + 
+				"Andar Atual.....: " + andarAtual + "\n" +
+				"Qtde de Pessoas.: " + qtdeAtual;
+	}
+	
+	public void descer() {
+		if (andarAtual>andarMinimo) {
+			andarAtual--;
+		}
+	}
+
+	
+	public void subir() {
+		if (andarAtual<andarMaximo) {
+			andarAtual++;
+		}
+	}
+	
+	
+	public void definirValores(String pNome, short pAndarMax, short pAndarMin, byte pCapacidade) {
+		nome = pNome;
+		andarMaximo = pAndarMax;
+		andarMinimo = pAndarMin;
+		capacidadePessoas = pCapacidade;	
+	}
+	
+
+
+==============================
+TesteElevador
+==============================
+		Elevador elevador = new Elevador();
+		
+		elevador.definirValores(
+				"TorreB",
+				(short) 10, 
+				(short)-1,
+				(byte) 5
+				);
+		
+		System.out.println(elevador.exibirDados());
+		elevador.entrar((byte) 3);
+		elevador.subir();
+		elevador.subir();
+		System.out.println(elevador.exibirDados());
+		elevador.entrar((byte) 5);
+		elevador.subir((byte) 20);
+		elevador.subir();
+		System.out.println(elevador.exibirDados());
+		elevador.sair((byte)2);
+		System.out.println(elevador.exibirDados());
+
+
+
+O método definirValores() deverá preencher os atributos: nome, andarMaximo, andarMinimo e capacidade
+O método subir() deverá subir um andar, mas não deve passar do andarMaximo
+O método descer() deverá descer um andar, mas não deve descer além do andarMinimo
+O metodo exibirDados() deverá exibir, nome do Elevador, o andar que ele está e a qtde de pessoas.
+O método entrar() deverá atribuir a qtde de pessoas recebida no parâmetro, no atributo qtdeAtual não
+deverá exceder a capacidade de Pessoas.
+O método sair () deverá retirar a qtde de pessoas informada no parâmetro do atributo qtdeAtual, mas não
+O método definirValores() deverá preencher os atributos: nome, andarMaximo, andarMinimo e capacidade
+O método subir() deverá subir um andar, mas não deve passar do andarMaximo
+O método descer() deverá descer um andar, mas não deve descer além do andarMinimo
+O metodo exibirDados() deverá exibir, nome do Elevador, o andar que ele está e a qtde de pessoas.
+O método entrar() deverá atribuir a qtde de pessoas recebida no parâmetro, no atributo qtdeAtual não
+deverá exceder a capacidade de Pessoas.
+O método sair () deverá retirar a qtde de pessoas informada no parâmetro do atributo qtdeAtual, mas não
+pode ficar um valor negativo.
+
+
+
+======================
+CarroFormula1
+====================
+	private String cor;
+
+
+	private float valor;
+	private String escuderia;
+	private float velocidade;
+	private boolean status;
+	
+	//Sintaxe método:
+	// <modificador> <tipo do retorno> <nomeDoMetodo> (<tipoParam> <nome do parametro>){
+	
+	public String retornarCor() {
+		return cor;
+	}
+	
+	public float retornarValor() {
+		return valor;
+	}
+	
+	public String retornarEscuderia() {
+		return escuderia;
+	}
+	
+	
+	public void preencherValor(float param) {
+		if (param>0) {
+			valor = param;
+		}
+		
+	}
+	
+	
+	public void preencherCor(String param) {
+		cor = param.toUpperCase();
+	}
+	
+	public void preencherEscuderia(String param) {
+		escuderia = param.toUpperCase();
+	}
+
+
+
+
+=========================
+Slide77Exercicio4
+==========================
+4º) Monte um programa que solicite a idade e o nome das pessoas. Ao terminar, o programa deverá exibir a pessoa mais velha, a pessoa mais nova, a quantidade de pessoas maiores de idade e a média entre as idades que foram digitadas.
+
+=> laço que vai solicitar os dados (nome e idade) 
+=> conta quantas pessoas são maiores de idade
+=> Média das idades que foram digitadas
+=> Exibir o nome e a idade da pessoa mais experiente
+=> Exibir o nome e a idade da pessoa mais jovem
+
+
+String nome="";
+		int idade=0;
+		int maioresDeIdade=0;
+		int qtdePessoas=0;
+		int totalIdade=0;
+		String nomeExperiente="";
+		int idadeExperiente=0;
+		String nomeJovem="";
+		int idadeJovem=0;
+		do {
+			
+			nome = JOptionPane.showInputDialog("Nome").toUpperCase();
+			idade = Integer.parseInt(JOptionPane.showInputDialog("Idade"));
+			if (idade>=18) {
+				maioresDeIdade++;
+			}
+			qtdePessoas++;
+			totalIdade+=idade; //totalIdade=totalIdade+idade;
+			if (idade>idadeExperiente) {
+				idadeExperiente=idade;
+				nomeExperiente=nome;
+			}
+			
+			if(idade<idadeJovem || qtdePessoas==1) {
+				idadeJovem=idade;
+				nomeJovem=nome;
+			}
+			
+			
+		}while(JOptionPane.showConfirmDialog(null, "Continuar?", "?", JOptionPane.YES_NO_OPTION)==0);
+		
+		System.out.println("Qtde de Pessoas Maiores de Idade: " + maioresDeIdade);
+		System.out.println("Média de Idades: " + (totalIdade/qtdePessoas));
+		System.out.printf("%s é o(a) mais experiente com %d anos.\n", nomeExperiente, idadeExperiente);
+		System.out.printf("%s é o(a) mais jovem com %d anos.\n", nomeJovem, idadeJovem);
+		
+		/*
+		float media = totalIdade/qtdePessoas;
+		System.out.printf("Média: %.2f\n", media);
+		System.out.printf("%s você tem %d anos de idade\n", nome, idade);
+		*/
+		
+
+
+
+
+
+========================
+ExemploWhile
+=======================
+
+		String email = JOptionPane.showInputDialog("Email").toLowerCase();
+		while (email.contains("@")==false || email.indexOf("@")<3) {
+			email = JOptionPane.showInputDialog("Digite um email com @").toLowerCase();
+		}
+		
+		System.out.println(email);
+
+========================
+DesafioWhile
+=======================
+
+		short ano = Short.parseShort(JOptionPane.showInputDialog("Ano"));
+		byte mes = Byte.parseByte(JOptionPane.showInputDialog("Mes"));
+		byte dia = Byte.parseByte(JOptionPane.showInputDialog("Dia"));
+		
+		while (ano<=1900) {
+			ano = Short.parseShort(JOptionPane.showInputDialog("Ano deve ser > que 1900"));
+		}
+		
+		while (mes<1 || mes>12) {
+			mes = Byte.parseByte(JOptionPane.showInputDialog("Mes deve estar entre 1 e 12"));
+		}
+		
+		if (mes==2) {
+			while (dia<1 || dia >29) {
+				dia = Byte.parseByte(JOptionPane.showInputDialog("Dia"));
+			}
+		}else if(mes==4 || mes == 6 || mes == 9 || mes ==11) {
+			while (dia<1 || dia >30){
+				dia = Byte.parseByte(JOptionPane.showInputDialog("Dia"));
+			}
+		}else {
+			while (dia<1 || dia >31){
+				dia = Byte.parseByte(JOptionPane.showInputDialog("Dia"));
+			}			
+		}
+		
+		System.out.println("Data: " + dia + "/" + mes + "/" + ano);
+
+
+
+========================
+Lista2Exercicio3
+=======================
+
+		int valor1 = Integer.parseInt(JOptionPane.showInputDialog("Valor 1"));
+		int valor2 = Integer.parseInt(JOptionPane.showInputDialog("Valor 2"));
+		char opcao = JOptionPane.showInputDialog
+				("Digite:\n+ Somar\n- Subtrair\n* Multiplicar\n/ Dividir").charAt(0);
+		if (opcao=='+') {
+			System.out.println("Resultado: " + (valor1+valor2));
+		}else if (opcao=='-') {
+			System.out.println("Resultado: " + (valor1-valor2));
+		}else if (opcao=='*') {
+			System.out.println("Resultado: " + (valor1*valor2));
+		}else if (opcao=='/') {
+			if (valor2!=0) {
+				System.out.println("Resultado: " + (valor1/valor2));
+			}
+		}else {
+			System.out.println("Opção inválida");
+		}
+
+======================
+Lista2Exercicio4
+=====================
+
+		int valor1 = Integer.parseInt(JOptionPane.showInputDialog("Valor 1"));
+		int valor2 = Integer.parseInt(JOptionPane.showInputDialog("Valor 2"));
+		int valor3 = Integer.parseInt(JOptionPane.showInputDialog("Valor 3"));
+		
+		if (valor1!=valor2 && valor1!=valor3 && valor3!=valor2) {
+			if (valor1>valor2 && valor1>valor3) {
+				System.out.println(valor1);
+				if (valor2>valor3) {
+					System.out.println(valor2);
+					System.out.println(valor3);
+				}else {
+					System.out.println(valor3);
+					System.out.println(valor2);
+				}
+			}else if (valor2>valor1 && valor2>valor3) {
+				System.out.println(valor2);
+				if (valor1>valor3) {
+					System.out.println(valor1);
+					System.out.println(valor3);
+				}else {
+					System.out.println(valor3);
+					System.out.println(valor1);
+				}
+			}else {
+				System.out.println(valor3);
+				if (valor1>valor2) {
+					System.out.println(valor1);
+					System.out.println(valor2);
+				}else {
+					System.out.println(valor2);
+					System.out.println(valor1);
+				}
+			}	
+		}else {
+			System.out.println("Existem valores iguais");
+		}
