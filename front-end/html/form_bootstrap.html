@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+
+    <!-- Criando o repositório de estilos em CSS-->
+    <link rel="stylesheet" href="../css/estilos.css">
+
+    <!-- Chamada da biblioteca CSS do BootStratrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <!-- Chamada da biblioteca JS do BootStrap-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-xl-3 col-lg-3 col-md-2 col-sm-3 div1"><img src="../imagem/logo.png" width="100%"></div>
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-3 div2"><img src="../imagem/logo.png" width="100%"></div>
+            <div class="col-xl-3 col-lg-3 col-md-2 col-sm-3 div3"><img src="../imagem/logo.png" width="100%"></div>
+            <div class="col-xl-2 col-lg-2 col-md-2 col-sm-3 div4"><img src="../imagem/logo.png" width="100%"></div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 div1">coluna1</div>
+            <div class="col-xl-10 col-lg-10 col-md-10 col-sm-10 div2">coluna2
+                <form id="formulario_contato" method="POST">
+                    <fieldset>
+                            <legend><b>Formulário de Acesso para os nossos Curos</b></legend><br>
+                        <label>Nome:</label><input type="text" name="nome" class="campo_nome" required><br><br>
+                        <label>Email:</label><input type="email" name="email" required><br><br>
+                        <label>Senha:</label><input type="password" name="senha" required><br><br>
+                        <label>Genero:</label>
+                        <input type="radio" name="opcao" value="Masculino" /> <span>Masculino</span>
+                        <input type="radio" name="opcao" value="Feminino" /> <span>Feminino</span>
+                        <input type="radio" name="opcao" value="Não Informado" /> <span> Não Informado</span>
+                        <br><br>
+                        <label>Data que deseja fazer o curso:</label><input type="date" name="data" required> <br><br>
+                        <label>Informe o período que deseja realizar o curso: </label>
+                        <input type="checkbox"  name="OPCAO" value="manhã"> Manhã
+                        <input type="checkbox"  name="OPCAO" value="tarde"> Tarde
+                        <input type="checkbox"  name="OPCAO" value="noite"> Noite<br><br>
+                        <label>Escolha o seu curso desejado:</label>
+                        <select>
+                            <option value=""></option>
+                            <option value="XML">XML</option>
+                            <option value="HTML">HTML5</option>
+                            <option value=CSS">CSS</option>
+                            <option value="JS">JS</option>
+                        </select><br><br>
+                        <label>Mensagem</label><br>
+                        <textarea cols="40" rows="4" name="mensagem"></textarea><br><br>
+                        <label>Anexar um comprovante de residência:</label>
+                        <input type="file" name="arquivo"><br><br>
+            
+            
+            
+            
+            
+            
+            
+                        <input type="submit" values="Enviar">
+            
+            
+                    </fieldset>
+                </form>
+
+
+
+            </div>
+            <div class="col-xl-1 col-lg-1 col-md-1 col-sm-1 div3">coluna3</div>
+
+
+
+
+        </div>
+
+
+        
+     </div>
+
+</body>
+
+</html>

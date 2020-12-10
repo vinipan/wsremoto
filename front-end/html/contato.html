@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Gama Academy</title>
+    <link rel="stylesheet" href="../css/estilos.css">
+
+
+
+</head>
+
+<body>
+    <!--<h1>Seja Bem Vindo</h1>-->
+    <table border="0" width="100%" class="menu">
+        <tr>
+            <td align="center" class="logo"><a href="../html/index.html"><img src="../imagem/logo.png" class="logo"></a></td>
+            <td>QUEM SOMOS</td>
+            <td>CURSOS ONLINE</td>
+            <td>GAMA EXPERIENCE</td>
+            <td>PARA EMPRESAS</td>
+            <td>CONTATO</td>
+            <td>CONTEÚDO</td>
+        </tr>
+    </table>
+    <br>
+
+    
+    <br>
+
+
+    <form id="formulario_contato" method="POST">
+        <fieldset>
+                <legend><b>Formulário de Acesso para os nossos Curos</b></legend><br>
+            <label>Nome:</label><input type="text" name="nome" class="campo_nome" required><br><br>
+            <label>Email:</label><input type="email" name="email" required><br><br>
+            <label>Senha:</label><input type="password" name="senha" required><br><br>
+            <label>Genero:</label>
+            <input type="radio" name="opcao" value="Masculino" /> <span>Masculino</span>
+            <input type="radio" name="opcao" value="Feminino" /> <span>Feminino</span>
+            <input type="radio" name="opcao" value="Não Informado" /> <span> Não Informado</span>
+            <br><br>
+            <label>Data que deseja fazer o curso:</label><input type="date" name="data" required> <br><br>
+            <label>Informe o período que deseja realizar o curso: </label>
+            <input type="checkbox"  name="OPCAO" value="manhã"> Manhã
+            <input type="checkbox"  name="OPCAO" value="tarde"> Tarde
+            <input type="checkbox"  name="OPCAO" value="noite"> Noite<br><br>
+            <label>Escolha o seu curso desejado:</label>
+            <select>
+                <option value=""></option>
+                <option value="XML">XML</option>
+                <option value="HTML">HTML5</option>
+                <option value=CSS">CSS</option>
+                <option value="JS">JS</option>
+            </select><br><br>
+            <label>Mensagem</label><br>
+            <textarea cols="40" rows="4" name="mensagem"></textarea><br><br>
+            <label>Anexar um comprovante de residência:</label>
+            <input type="file" name="arquivo"><br><br>
+
+
+
+
+
+
+
+            <input type="submit" values="Enviar">
+
+
+        </fieldset>
+    </form>
+
+
+
+
+</body>
+
+</html>

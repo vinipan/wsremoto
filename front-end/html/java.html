@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mr. Lover Man, java.</title>
+
+    <script>
+
+        // var empresa="Pilantras Inc.";
+        // var mensagem="Seja bem comido - ";
+        // alert(mensagem+empresa);
+        //var nome =  prompt("SE FODE AI, INFROME SEU NOME");
+        //alert("SE FODE AI "+nome+" SEU PUTO");
+        //document.write("se fode ai "+nome);
+
+        /*function mensagem () {
+            alert("NOSSA, COMO VOCÊ É BURRO!!!");
+        }
+        */
+        function validar(){
+            var nome=formuser.nome.value;
+            var email=formuser.email.value;
+            var senha=formuser.senha.value;
+
+            if (nome==""){
+                alert("O preenchimento do nome é obrigatório, seu animal!!!");
+                formuser.nome.focus();
+                return false;
+            }
+
+            if(email =="" || email.indexOf('@')==-1){
+                alert("O PREENCHIMENTO DO EMAIL É OBRIGATÓRIO SEU ANIMAL!!!");
+                formuser.email.focus();
+                return false;
+            }
+
+            if(senha =="" || senha.length <= 5){
+                alert("A SENHA DEVE CONTER 6 DÍGITOS!!!\nSEU PUTO DE BOSTA!");
+                formuser.senha.focus();
+                return false;
+            }
+        }
+
+
+
+
+    </script>
+
+</head>
+<body>
+
+    <form id="formuser" method="POST">
+        Nome:<input type="text" name="nome"><br><br>
+        Email:<input type="text" name="email"><br><br>
+        Senha:<input type="password" name="senha"><br><br>
+
+        <input type="submit" onclick="return validar()" value="Enviar">
+    </form>
+
+    <!-- <input type="button" onclick="mensagem" value="me boline"> -->
+    
+</body>
+</html>
