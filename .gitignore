@@ -2,6 +2,14 @@
 # Created by https://www.toptal.com/developers/gitignore/api/eclipse,java,windows
 # Edit at https://www.toptal.com/developers/gitignore?templates=eclipse,java,windows
 
+### vscode ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.code-workspace
+
 ### Eclipse ###
 .metadata
 bin/
