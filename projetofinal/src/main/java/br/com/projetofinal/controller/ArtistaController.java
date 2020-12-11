@@ -3,9 +3,12 @@ package br.com.projetofinal.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetofinal.beans.Artista;
@@ -20,30 +23,44 @@ public class ArtistaController {
 	private ArtistaDAO dao;
 	
 	@GetMapping("/artistas")
-	public List<Artista> getAll()
+	public ResponseEntity<List<Artista>> getAll()
 	{
 		List<Artista> lista = (List<Artista>) dao.findAll();
-		return lista;
+		if (lista.size() ==0) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.ok(lista);
 		
 	}
 	
+	@PostMapping("/artistapost")
+	public ResponseEntity<Artista> getArtistaPost(@RequestBody Artista objeto){
+		Artista resposta = dao.findById(objeto.getId()).orElse(null);
+		if (resposta == null) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.ok(resposta);	}
+	
+	
+	
 	@GetMapping("/artista/{cod}")
-	public Artista getArtista(@PathVariable int cod) {
+	public ResponseEntity<Artista> getArtista(@PathVariable int cod) {
 		Artista objeto = dao.findById(cod).orElse(null);
-		return objeto;
+		if (objeto == null) {
+			return ResponseEntity.status(404).build();
+		}
+		return ResponseEntity.ok(objeto);
 		
 	}
 	
 	@GetMapping("/artista/del/{cod}")
-	public String delArtista (@PathVariable int cod) {
-		try {
-			Artista objeto = dao.findById(cod).orElse(null);			
-			dao.deleteById(cod);
-			return "O SEGUINTE REGISTRO FOI APAGADO: \n" + objeto; 
+	public void delArtista (@PathVariable int cod) {
+		try {					
+			dao.deleteById(cod);			 
 		}
 		
 		catch (Exception erro) {
-			return "ALGO DEU RUIM";
+			erro.printStackTrace();
 		}
 	}
 	

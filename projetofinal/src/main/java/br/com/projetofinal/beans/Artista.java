@@ -7,14 +7,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name="tb_artista")
+@Entity // indica que a classe estará relacionada a uma tabela do BD
+@Table(name="tb_artista") 
 
 public class Artista {
 	
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id //indica que este cara será a chave privada
+	@GeneratedValue(strategy = GenerationType.IDENTITY) //indica a estratégia de input dos dados, neste caso vai incremetando o id a cada novo registro 
 	@Column(name="id")
 	private int id;
 	

@@ -23,4 +23,6 @@ public interface UsuarioDAO extends CrudRepository<Usuario, Integer> { //<objeto
 	deleteById()
 	deleteAll
 	*/
+	
+	public Usuario findByEmailAndSenha(String email, String senha);
 }
