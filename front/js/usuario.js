@@ -9,7 +9,7 @@ function exibirusuario(){
         "Email: " + usuariojson.email + " (" + usuariojson.id + ")</h3>" 
 
         document.getElementById("foto").innerHTML =
-        "<img alt='Você não possui imagem' width='80%' height='80%' src=images/" + usuariojson.foto + ">";
+        "<img alt='Você não possui imagem' width='50%' height='60%' src=images/" + usuariojson.foto + ">";
 
     }
 }

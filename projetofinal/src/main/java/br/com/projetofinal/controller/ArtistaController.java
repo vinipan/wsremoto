@@ -1,10 +1,12 @@
 package br.com.projetofinal.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.projetofinal.beans.Artista;
+import br.com.projetofinal.beans.Musica;
 import br.com.projetofinal.dao.ArtistaDAO;
 
 @RestController
@@ -21,6 +24,19 @@ public class ArtistaController {
 	
 	@Autowired
 	private ArtistaDAO dao;
+	
+	@DeleteMapping("/apagarartista2/{cod")
+	public void apagarArtista2(@PathVariable int cod) {
+		try {
+			dao.deleteById(cod);
+		}
+		catch (Exception erro){
+			erro.printStackTrace();
+		}
+		
+	}
+	
+	
 	
 	@GetMapping("/artistas")
 	public ResponseEntity<List<Artista>> getAll()
@@ -64,9 +80,9 @@ public class ArtistaController {
 		}
 	}
 	
-	@GetMapping("/artista/add/{nam}.{nac}")
-	public String addArtista (@PathVariable String nam, @PathVariable String nac) {
-		Artista objArtista = new Artista (0,nam,nac);
+	@GetMapping("/artista/add/{nam}.{nac}.[mus]")
+	public String addArtista (@PathVariable String nam, @PathVariable String nac, @PathVariable Musica mus) {
+		Artista objArtista = new Artista (0,nam,nac, new ArrayList<Musica>());
 		dao.save(objArtista);		
 		return "";
 	}
